@@ -1,10 +1,10 @@
 import React from 'react';
-import Enzyme from 'enzyme';
+import { shallow } from 'enzyme';
 import LocationDetails from '../../src/components/location-details';
 
 describe('LocationDetails component', () =>{
-  it('renders the passed city and country in location-details class', () => {
-    const wrapper = Enzyme.shallow((
+  it('renders city and country properties', () => {
+    const wrapper = shallow((
       <LocationDetails city="foo" country="bar" />
     ));
     const text = wrapper.find('.location-details').text();
