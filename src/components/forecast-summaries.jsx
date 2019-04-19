@@ -19,13 +19,7 @@ const ForecastSummaries = props => (
 );
 
 ForecastSummaries.propTypes = {
-  forecasts: PropTypes.shape({
-    date: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired,
-    temperature: PropTypes.number.isRequired,
-  }).isRequired,
-  key: PropTypes.number.isRequired,
+  forecasts: PropTypes.array.isRequired,
 };
 
 export default ForecastSummaries;

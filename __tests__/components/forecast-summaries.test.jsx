@@ -6,12 +6,14 @@ describe('ForecastSummaries component', () => {
   let wrapper;
   const forecasts = [
     {
+      key: 1234,
       date: 1234,
       description: 'description',
       icon: '10',
       temperature: 20,
     },
     {
+      key: 5678,
       date: 5678,
       description: 'description2',
       icon: '12',
