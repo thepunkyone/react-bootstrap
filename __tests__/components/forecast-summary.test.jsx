@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ForecastSummary from '../../src/components/forecast-summary';
 
-describe('ForecastSummary component', () =>{
+describe('ForecastSummary component', () => {
   let wrapper;
 
   beforeEach(() => {
