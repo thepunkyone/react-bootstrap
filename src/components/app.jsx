@@ -9,19 +9,24 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDate: this.props.forecasts[0],
+      selectedDate: this.props.forecasts[0].date,
     };
   }
 
   render() {
+    const props = this.props;
+    const selectedForecast = props.forecasts.find(forecast => {
+      return forecast.date === this.state.selectedDate;
+    });
+
     return (
       <div className="forecast">
         <LocationDetails
-          city={this.props.location.city}
-          country={this.props.location.country}
+          city={props.location.city}
+          country={props.location.country}
         />
-        <ForecastSummaries forecasts={this.props.forecasts} />
-        <ForecastDetails forecast={this.state.selectedDate} />
+        <ForecastSummaries forecasts={props.forecasts} />
+        <ForecastDetails forecast={selectedForecast} />
       </div>
     );
   }
