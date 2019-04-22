@@ -8,18 +8,20 @@ import '../styles/app.scss';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      selectedDate: this.props.forecasts[0],
+    };
   }
 
   render() {
     return (
       <div className="forecast">
         <LocationDetails
-          city={props.location.city}
-          country={props.location.country}
+          city={this.props.location.city}
+          country={this.props.location.country}
         />
-        <ForecastSummaries forecasts={props.forecasts} />
-        <ForecastDetails forecast={props.forecasts[0]} />
+        <ForecastSummaries forecasts={this.props.forecasts} />
+        <ForecastDetails forecast={this.state.selectedDate} />
       </div>
     );
   }
