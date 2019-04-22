@@ -18,7 +18,7 @@ describe('ForecastSummary component', () => {
 
   it('Gets passed the correct date, temperature, description and icon properties', () => { 
     const date = wrapper.find('.date').text();
-    expect(date).toEqual('Mon 30th Apr');
+    expect(date).toBe('Mon 30th Apr');
     const temperature = wrapper.find('.temperature').text();
     expect(temperature).toBe('mockTemperature');
     const description = wrapper.find('.description').text();
