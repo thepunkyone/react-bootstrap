@@ -5,16 +5,26 @@ import ForecastSummaries from '../components/forecast-summaries';
 import ForecastDetails from '../components/forecast-details';
 import '../styles/app.scss';
 
-const App = props => (
-  <div className="forecast">
-    <LocationDetails
-      city={props.location.city}
-      country={props.location.country}
-    />
-    <ForecastSummaries forecasts={props.forecasts} />
-    <ForecastDetails forecast={props.forecasts[0]} />
-  </div>
-);
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    return (
+      <div className="forecast">
+        <LocationDetails
+          city={props.location.city}
+          country={props.location.country}
+        />
+        <ForecastSummaries forecasts={props.forecasts} />
+        <ForecastDetails forecast={props.forecasts[0]} />
+      </div>
+    );
+  }
+}
+
 
 App.propTypes = {
   location: PropTypes.shape({
