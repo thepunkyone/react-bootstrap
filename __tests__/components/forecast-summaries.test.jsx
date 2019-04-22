@@ -1,14 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import ForecastSummaries from '../../src/components/forecast-summaries';
-import ForecastSummary from '../../src/components/forecast-summary';
-
 
 describe('ForecastSummaries component', () => {
   let wrapper;
   const forecasts = [
     {
-      key: 1234,
       date: 1234,
       description: 'description',
       icon: '10',
@@ -17,7 +14,6 @@ describe('ForecastSummaries component', () => {
       },
     },
     {
-      key: 5678,
       date: 5678,
       description: 'description2',
       icon: '12',
@@ -39,12 +35,11 @@ describe('ForecastSummaries component', () => {
   });
 
   it('ForecastSummary components get passed the correct props', () => {
-    wrapper.find('ForecastSummary').forEach(summary => {
-      expect(summary.prop('key')).toBeTruthy;
-      expect(summary.prop('date')).toBeTruthy;
-      expect(summary.prop('description')).toBeTruthy;
-      expect(summary.prop('icon')).toBeTruthy;
-      expect(summary.prop('temperature.max')).toBeTruthy;
+    wrapper.find('ForecastSummary').forEach((summary, index) => {
+      expect(summary.prop('date')).toEqual(forecasts[index].date);
+      expect(summary.prop('description')).toEqual(forecasts[index].description);
+      expect(summary.prop('icon')).toEqual(forecasts[index].icon);
+      expect(summary.prop('temperature')).toEqual(forecasts[index].temperature.max);
     });
 
     expect(wrapper.find('ForecastSummary').at(0).prop('date')).toBe(1234);
