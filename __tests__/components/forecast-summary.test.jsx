@@ -9,7 +9,7 @@ describe('ForecastSummary component', () => {
     wrapper = shallow((
       <ForecastSummary
         date={1525046400000}
-        temperature="mockTemperature"
+        temperature={10}
         description="mockDescription"
         icon="mockIcon"
       />
@@ -20,12 +20,12 @@ describe('ForecastSummary component', () => {
     const date = wrapper.find('.date').text();
     expect(date).toBe('Mon 30th Apr');
     const temperature = wrapper.find('.temperature').text();
-    expect(temperature).toBe('mockTemperature');
+    expect(temperature).toBe('10');
     const description = wrapper.find('.description').text();
     expect(description).toBe('mockDescription');
     const icon = wrapper.find('WeatherIcon');
-    expect(icon.prop('name')).toEqual('owm');
-    expect(icon.prop('iconId')).toEqual('mockIcon');
+    expect(icon.prop('name')).toBe('owm');
+    expect(icon.prop('iconId')).toBe('mockIcon');
   });
 
 });
