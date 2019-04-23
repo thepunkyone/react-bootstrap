@@ -12,11 +12,12 @@ describe('ForecastSummary component', () => {
         temperature={10}
         description="mockDescription"
         icon="mockIcon"
+        onSelect={jest.fn()}
       />
     ));
   });
 
-  it('Gets passed the correct date, temperature, description and icon properties', () => { 
+  it('Gets passed the correct date, temperature, description, icon on click handler properties', () => { 
     const date = wrapper.find('.date').text();
     expect(date).toBe('Mon 30th Apr');
     const temperature = wrapper.find('.temperature').text();
@@ -26,6 +27,9 @@ describe('ForecastSummary component', () => {
     const icon = wrapper.find('WeatherIcon');
     expect(icon.prop('name')).toBe('owm');
     expect(icon.prop('iconId')).toBe('mockIcon');
+    ////////////////////////////////  
+    const button = wrapper.find('button');
+    expect(button.prop('onClick')).toEqual(() => jest.fn());
   });
 
 });

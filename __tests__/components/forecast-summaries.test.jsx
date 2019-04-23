@@ -40,6 +40,7 @@ describe('ForecastSummaries component', () => {
       expect(summary.prop('description')).toEqual(forecasts[index].description);
       expect(summary.prop('icon')).toEqual(forecasts[index].icon);
       expect(summary.prop('temperature')).toEqual(forecasts[index].temperature.max);
+      expect(summary.prop('onSelect')).toEqual(wrapper.props.onForecastSelect);
     });
 
     expect(wrapper.find('ForecastSummary').at(0).prop('date')).toBe(1234);
