@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import axios from 'axios';
 import LocationDetails from '../components/location-details';
 import ForecastSummaries from '../components/forecast-summaries';
 import ForecastDetails from '../components/forecast-details';
@@ -9,7 +9,12 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedDate: this.props.forecasts[0].date,
+      selectedDate: 0,
+      forecasts: [],
+      location: {
+        city: '',
+        country: '',
+      },
     };
     this.handleForecastSelect = this.handleForecastSelect.bind(this);
   }
@@ -21,31 +26,24 @@ class App extends React.Component {
   }
 
   render() {
-    const props = this.props;
-    const selectedForecast = props.forecasts.find(forecast => {
-      return forecast.date === this.state.selectedDate;
+    const state = this.state;
+    const selectedForecast = state.forecasts.find(forecast => {
+      return forecast.date === state.selectedDate;
     });
 
     return (
       <div className="forecast">
         <LocationDetails
-          city={props.location.city}
-          country={props.location.country}
+          city={state.location.city}
+          country={state.location.country}
         />
-        <ForecastSummaries forecasts={props.forecasts} onForecastSelect={this.handleForecastSelect} />
-        <ForecastDetails forecast={selectedForecast} />
+        <ForecastSummaries forecasts={state.forecasts} onForecastSelect={this.handleForecastSelect} />
+        {
+          selectedForecast && <ForecastDetails forecast={selectedForecast} />
+        }
       </div>
     );
   }
 }
-
-
-App.propTypes = {
-  location: PropTypes.shape({
-    city: PropTypes.string,
-    country: PropTypes.string,
-  }).isRequired,
-  forecasts: PropTypes.array.isRequired,
-};
 
 export default App;
