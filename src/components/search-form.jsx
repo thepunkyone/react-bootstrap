@@ -4,11 +4,11 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      searchText: '',
     };
   }
 
-  handleInputChange = () => console.log('hello');
+  handleInputChange = (event) => console.log(event.target.value);
 
   render() {
     return (
