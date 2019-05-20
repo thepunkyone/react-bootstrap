@@ -1,7 +1,7 @@
 {
-  "name": "react-bootstrap",
+  "name": "react-weather-app",
   "version": "1.0.0",
-  "description": "react bootstrap application",
+  "description": "react weather app",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
@@ -10,21 +10,25 @@
   "keywords": [
     "react"
   ],
-  "author": "Manchester Codes",
+  "author": "Vitnija Bluzma",
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MCRcodes/react-bootstrap.git"
+    "url": "git+https://github.com/thepunkyone/react-weather-app.git"
   },
   "bugs": {
-    "url": "https://github.com/MCRcodes/react-bootstrap/issues"
+    "url": "https://github.com/MCRcodes/react-weather-app/issues"
   },
-  "homepage": "https://github.com/MCRcodes/react-bootstrap#readme",
+  "homepage": "https://github.com/MCRcodes/react-weather-app#readme",
   "dependencies": {
+    "axios": "^0.18.0",
+    "i": "^0.3.6",
+    "moment": "^2.24.0",
     "prop-types": "^15.6.1",
     "raf": "^3.4.0",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react-dom": "^16.3.2",
+    "react-icons-weather": "^1.0.5"
   },
   "devDependencies": {
     "babel-jest": "^22.4.3",
